@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt4t7ps64iga4"]
+
+[ext_resource type="Texture2D" uid="uid://d4jf5phmedcqj" path="res://assets/sprites/spilled-coffee-cartoon-260nw-117862972.webp" id="1_btdpc"]
+[ext_resource type="Script" uid="uid://d03abd66mu0rx" path="res://entities/enemies/obstacle.gd" id="1_nw6ig"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nw6ig"]
+size = Vector2(229, 131)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_nw6ig")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_btdpc")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -10.5)
+shape = SubResource("RectangleShape2D_nw6ig")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
