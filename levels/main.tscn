@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dck6273xuimtr"]
+[gd_scene load_steps=8 format=3 uid="uid://dck6273xuimtr"]
 
 [ext_resource type="PackedScene" uid="uid://db65qeqjwgpcb" path="res://entities/player/player.tscn" id="1_2262g"]
 [ext_resource type="Texture2D" uid="uid://crop4kw2h7woc" path="res://assets/sprites/pixel-art-seamless-background-location-with-snowy-mountains-at-night-landscape-8-bit-julien.jpg" id="2_wdj6m"]
 [ext_resource type="Script" uid="uid://u76b23qwat35" path="res://levels/spawner.gd" id="3_l8qe7"]
 [ext_resource type="PackedScene" uid="uid://bt4t7ps64iga4" path="res://entities/enemies/obstacle.tscn" id="4_m1504"]
+[ext_resource type="PackedScene" uid="uid://bikfnakaptoxp" path="res://ui/HUD.tscn" id="5_ifaiv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wdj6m"]
 size = Vector2(1426, 70)
@@ -63,4 +64,7 @@ autostart = true
 [node name="Player" parent="." groups=["jugador"] instance=ExtResource("1_2262g")]
 position = Vector2(141, 377)
 
+[node name="Hud" parent="." instance=ExtResource("5_ifaiv")]
+
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
+[connection signal="live_changed" from="Player" to="Hud" method="_on_player_live_changed"]

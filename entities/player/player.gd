@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
+signal live_changed(lives_left)
 @export var SPEED = 300.0
 @export var JUMP_VELOCITY = -400.0 # negativo significa arriba
 
-var lifes: int = 3
+var lives: int = 3
 var is_invulnerable: bool = false
 var gravity_jump = 1200.0 #gravedad interna para el salto fingido
 var z_velocity = 0.0 #velocidad vertical del salto
@@ -42,7 +43,8 @@ func get_damage():
 		return
 	
 	#if not, less life but invulnerability activated
-	lifes -= 1
+	lives -= 1
+	live_changed.emit(lives)
 	is_invulnerable = true
 	$InvulnerabilityTimer.start()
 	
@@ -52,9 +54,9 @@ func get_damage():
 	modulate = Color.WHITE
 	modulate.a = 0.5
 	
-	print("Vidas restantes: ", lifes)
+	print("Vidas restantes: ", lives)
 	
-	if lifes <= 0:
+	if lives <= 0:
 		print("Recursaste (game over)")
 		#Then here I can reset de level
 

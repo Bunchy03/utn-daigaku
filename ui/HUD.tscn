@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bikfnakaptoxp"]
+
+[ext_resource type="Texture2D" uid="uid://cr7bjwuw57y44" path="res://assets/sprites/heart pixel art 254x254.png" id="1_1x8ju"]
+[ext_resource type="Script" uid="uid://d1ipl4wwpa6j1" path="res://ui/hud.gd" id="1_aaqae"]
+
+[node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_aaqae")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1250.0
+offset_top = 44.0
+offset_right = -1110.0
+offset_bottom = 84.0
+grow_horizontal = 0
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("1_1x8ju")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("1_1x8ju")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+texture = ExtResource("1_1x8ju")
+expand_mode = 1
+stretch_mode = 5
