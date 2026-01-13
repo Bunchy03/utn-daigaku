@@ -65,6 +65,7 @@ autostart = true
 position = Vector2(141, 377)
 
 [node name="Hud" parent="." instance=ExtResource("5_ifaiv")]
+process_mode = 3
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
 [connection signal="live_changed" from="Player" to="Hud" method="_on_player_live_changed"]

@@ -57,8 +57,8 @@ func get_damage():
 	print("Vidas restantes: ", lives)
 	
 	if lives <= 0:
-		print("Recursaste (game over)")
-		#Then here I can reset de level
+		get_node("../Hud").show_game_over()
+		get_tree().paused = true
 
 #timeout signal conected to player
 func _on_invulnerability_timer_timeout() -> void:
